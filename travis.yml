@@ -16,7 +16,7 @@ deploy:
   provider: script
   script:
     docker tag docker-to-aws-with-java:latest jcarlosnascimento/docker-from-zero-to-mastery-java:latest;
-    docker push jcarlosnascimento/docker-from-zero-to-mastery-java;
+    docker push josecarlosnascimento / docker-from-zero-to-mastery-java;
   on:
     branch: master
 notifications:
