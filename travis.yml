@@ -7,7 +7,7 @@ before_install:
   - echo "Bora mooonstro!"
   - mvn clean package
   - cd ..
-  - echo "Fim!"
+  - echo "Vem com o moonstro!"
 script:
   - docker-compose build
 before_deploy:
