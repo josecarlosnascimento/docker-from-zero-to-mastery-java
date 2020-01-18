@@ -1,0 +1,23 @@
+language: java
+jdk:
+  - oraclejdk11
+before_install:
+  - sudo apt-get update
+  - cd app/
+  - echo "Bora mooonstro!"
+  - mvn clean package
+  - cd ..
+  - echo "Fim!"
+script:
+  - docker-compose build
+before_deploy:
+  echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+deploy:
+  provider: script
+  script:
+    docker tag docker-to-aws-with-java:latest jcarlosnascimento/docker-from-zero-to-mastery-java:latest;
+    docker push jcarlosnascimento/docker-from-zero-to-mastery-java;
+  on:
+    branch: master
+notifications:
+  email: jcn271@gmail.com
